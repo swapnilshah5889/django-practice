@@ -4,6 +4,7 @@
 
 # Ignore virtual environment
 virtual_env/
+my_venv/
 __pycache__/
 
 # Ignore static files

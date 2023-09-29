@@ -2,7 +2,7 @@ from django.http import HttpResponse;
 
 
 def index(request):
-    return HttpResponse("<b>Hello World</b>"r)
+    return HttpResponse("<b>Hello World</b>")
 
 def demo(request):
     return HttpResponse("Hello World, demo")
