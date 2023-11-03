@@ -6,4 +6,5 @@ urlpatterns = [
     path('/demo', views.demo, name='demo'),
     path('/mytemplate', views.templateExample, name='mytemplate'),
     path('/temp', views.temp, name='demo2'),
+    path('/imagedemo', views.imageDemo, name='imagedemo'),
 ]

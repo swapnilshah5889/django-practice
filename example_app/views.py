@@ -43,3 +43,9 @@ def templateExample(request):
 
 def temp(request):
     return HttpResponse("DEMO")
+
+def imageDemo(request):
+    context = {
+        "imgUrl" : "https://m.media-amazon.com/images/I/81ZCOEc-b0L._SL1500_.jpg"
+    }
+    return render(request, 'imagetemplate.html', context)
