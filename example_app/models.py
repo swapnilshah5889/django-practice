@@ -18,6 +18,16 @@ class BakedGood(models.Model):
     )
     price = models.DecimalField(max_digits=6, decimal_places=2) 
     recipe = models.TextField()
+    baked_on = models.DateTimeField()
+
+    def to_json(self):
+        return {
+            "name":self.name,
+            "desc":self.desc,
+            "good_type":self.good_type,
+            "price":self.price,
+            "recipe":self.recipe
+        }
 
 class Car(models.Model):
     CAR_BRANDS = [  
@@ -38,3 +48,14 @@ class Car(models.Model):
     color = models.CharField(max_length=20, blank=True, null=True)
     mileage = models.PositiveIntegerField()
     description = models.TextField(blank=True, null=True)
+
+    def to_json(self):
+        return {
+            "make":self.make,
+            "model":self.model,
+            "year":self.year,
+            "price":self.price,
+            "color":self.color,
+            "mileage":self.mileage,
+            "description":self.description
+        }

@@ -1,5 +1,6 @@
-from django.http import HttpResponse;
+from django.http import HttpResponse, JsonResponse;
 from django.shortcuts import render;
+from example_app.models import BakedGood;
 
 # Create your views here.
 
@@ -49,3 +50,17 @@ def imageDemo(request):
         "imgUrl" : "https://m.media-amazon.com/images/I/81ZCOEc-b0L._SL1500_.jpg"
     }
     return render(request, 'imagetemplate.html', context)
+
+def ajax_demo(request):
+    data = []
+    bakedGoods = BakedGood.objects.all()
+    for bgood in bakedGoods:
+        data.append(bgood.to_json())
+
+    return JsonResponse({"bakedGoods":data, "total":len(data)})
+
+def baked_goods(request):
+    return render(request, 'bakedgoods.html')
+
+def date_picker(request):
+    return render(request, 'datepicker.html')
